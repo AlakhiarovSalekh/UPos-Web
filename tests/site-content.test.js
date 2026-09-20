@@ -12,7 +12,7 @@ test('all Paddle review policy pages exist and are linked in the footer', async 
   }
 });
 
-test('GitHub Pages base path preserves trailing slash for internal URLs', async () => {
+test('optional GitHub Pages base path preserves trailing slash for internal URLs', async () => {
   const config = await read('astro.config.mjs');
   assert.match(config, /`\/\$\{repositoryName\}\/`/);
 });
