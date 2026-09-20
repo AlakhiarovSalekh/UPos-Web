@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { plans } from '../data/site';
+
+const requestedPlan = Astro.url.searchParams.get('plan') || 'growth';
+const plan = plans.find((item) => item.name.toLowerCase() === requestedPlan) || plans[1];
+const clientToken = import.meta.env.PUBLIC_PADDLE_CLIENT_TOKEN;
+const priceId = plan.name === 'Starter' ? import.meta.env.PUBLIC_PADDLE_PRICE_STARTER : import.meta.env.PUBLIC_PADDLE_PRICE_GROWTH;
+const configured = Boolean(clientToken && priceId && !clientToken.includes('your_') && !priceId.includes('your_'));
+---
+<BaseLayout title={`Checkout — ${plan.name} | UPos`} description={`Start your UPos ${plan.name} subscription securely through Paddle.`} noindex>
+  <section class="checkout-page"><div class="shell checkout-grid"><div><a class="back-link" href="/pricing/">← Back to pricing</a><p class="kicker"><span></span> Secure checkout</p><h1>Start with<br/><em>{plan.name}.</em></h1><div class="order-summary"><div><span>{plan.name} plan</span><strong>${plan.monthly}/month</strong></div><p>Recurring monthly subscription. Applicable taxes calculated at checkout. Cancel any time before renewal.</p><ul>{plan.features.map((feature) => <li>✓ {feature}</li>)}</ul></div></div><div class="checkout-panel"><span class="secure-label">◈ Secure payment by Paddle</span>{configured ? <button class="button" id="paddle-checkout">Continue to secure checkout</button> : <div class="checkout-placeholder"><div class="spinner-mark">U</div><h2>Checkout is being connected</h2><p>We are preparing secure billing for launch. You can still start a conversation and reserve your onboarding.</p><a class="button" href="/contact/">Contact our team</a></div>}<p class="checkout-consent">By continuing, you agree to the <a href="/terms/">Terms</a> and <a href="/refund-policy/">Refund Policy</a>. Paddle is the Merchant of Record and handles payment, tax, invoices and returns.</p></div></div></section>
+  {configured && <script is:inline src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>}
+  {configured && <script define:vars={{ clientToken, priceId }}>
+    Paddle.Initialize({ token: clientToken });
+    document.querySelector('#paddle-checkout')?.addEventListener('click', () => Paddle.Checkout.open({ items: [{ priceId, quantity: 1 }], settings: { displayMode: 'overlay', theme: 'light', locale: 'en' } }));
+  </script>}
+</BaseLayout>

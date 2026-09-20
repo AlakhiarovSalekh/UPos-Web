@@ -1,0 +1,31 @@
+.button {
+  white-space: nowrap;
+}
+
+@media (max-width: 1150px) and (min-width: 761px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 110px 0 60px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .product-stage {
+    min-height: 560px;
+  }
+
+  .app-window {
+    width: 100%;
+    transform: none;
+  }
+
+  .stage-orbit {
+    display: none;
+  }
+
+  .proof-bar div {
+    gap: 20px;
+  }
+}

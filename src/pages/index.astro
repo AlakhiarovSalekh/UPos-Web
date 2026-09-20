@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingCards from '../components/PricingCards.astro';
+---
+<BaseLayout title="UPos — Retail, perfectly in sync" description="A modern point-of-sale platform for sales, inventory, staff and reporting—online or offline, from one calm workspace.">
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="shell hero-grid">
+      <div class="hero-copy reveal">
+        <p class="kicker"><span></span> Point of sale, reimagined</p>
+        <h1>Retail, perfectly<br/><em>in sync.</em></h1>
+        <p class="hero-lede">Sell, track stock, manage shifts, and understand your business from one beautifully simple workspace—even when the internet drops.</p>
+        <div class="hero-actions"><a class="button" href="/pricing/">Start free for 14 days <span>→</span></a><a class="play-link" href="#workflow"><i>▶</i> See how it works</a></div>
+        <div class="trust-row"><span>✓ No card required</span><span>✓ Set up in minutes</span><span>✓ Cancel anytime</span></div>
+      </div>
+      <div class="product-stage reveal delay-1" aria-label="UPos dashboard preview">
+        <div class="stage-orbit orbit-one"></div><div class="stage-orbit orbit-two"></div>
+        <div class="app-window">
+          <div class="window-bar"><span class="window-logo"><b></b>UPos</span><span class="window-search">⌕ &nbsp; Search anything</span><span class="window-user">SA</span></div>
+          <div class="window-body">
+            <aside><b>Overview</b><span>Point of sale</span><span>Products</span><span>Inventory</span><span>Customers</span><span>Reports</span><small>SETTINGS</small><span>Team</span><span>Locations</span></aside>
+            <div class="dashboard">
+              <div class="dash-head"><div><small>MONDAY, 20 SEPTEMBER</small><h2>Good morning, Salekh.</h2></div><button>+ New sale</button></div>
+              <div class="metric-row"><article><small>NET SALES</small><strong>$12,840</strong><span>↑ 18.4%</span></article><article><small>ORDERS</small><strong>342</strong><span>↑ 12.1%</span></article><article><small>AVG. ORDER</small><strong>$37.54</strong><span>↑ 5.2%</span></article></div>
+              <div class="chart-card"><div><small>REVENUE</small><b>Sales overview</b></div><span>Last 7 days⌄</span><svg viewBox="0 0 500 155" role="img" aria-label="Rising weekly revenue chart"><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7f06a" stop-opacity=".34"/><stop offset="1" stop-color="#b7f06a" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0 130 C40 125 45 90 90 102 S155 72 190 88 S250 38 290 62 S350 55 380 35 S450 22 500 8 V155 H0Z"/><path class="line" d="M0 130 C40 125 45 90 90 102 S155 72 190 88 S250 38 290 62 S350 55 380 35 S450 22 500 8"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="floating-card sale-pop"><span>✓</span><div><b>Sale completed</b><small>Order #1048 · $84.20</small></div></div>
+        <div class="floating-card stock-pop"><small>LOW STOCK</small><b>3 items need attention</b><div><i></i><i></i><i></i></div></div>
+      </div>
+    </div>
+    <div class="shell proof-bar"><p>Built for ambitious retail teams</p><div><span>NORTH & CO.</span><span>FORMA</span><span>smallhours</span><span>OAK / LINE</span><span>MONO</span></div></div>
+  </section>
+
+  <section class="section product-section" id="product">
+    <div class="shell"><div class="section-heading"><p class="kicker"><span></span> Everything connected</p><h2>One system.<br/><em>Every moving part.</em></h2><p>UPos brings the front counter and back office together so your team moves faster and you always know what is happening.</p></div>
+      <div class="feature-bento">
+        <article class="feature feature-pos"><div class="icon-box">↗</div><h3>Sell without friction</h3><p>A fast, focused checkout with flexible payments, discounts, returns and receipts.</p><div class="mini-pos"><div><span>Cortado</span><b>$4.50</b></div><div><span>Canvas Tote</span><b>$22.00</b></div><button>Charge · $26.50</button></div></article>
+        <article class="feature feature-stock"><div class="icon-box">⌁</div><h3>Know every item</h3><p>Real-time inventory across locations, with low-stock signals before you miss a sale.</p><div class="stock-lines"><span style="--w:82%"></span><span style="--w:58%"></span><span style="--w:34%"></span><span style="--w:70%"></span></div></article>
+        <article class="feature feature-team"><div class="icon-box">◎</div><h3>Keep shifts accountable</h3><p>Open and close registers confidently with permissions and a full activity trail.</p><div class="team-card"><span>OPEN SHIFT</span><strong>08h 42m</strong><div><i>SA</i><p><b>Salekh A.</b><small>Main store · Register 01</small></p></div></div></article>
+        <article class="feature feature-insights"><div><div class="icon-box">⌇</div><h3>See what matters</h3><p>Turn every transaction into clear, practical insight—without wrestling spreadsheets.</p></div><div class="insight-stat"><small>TODAY'S NET SALES</small><strong>$12,840.20</strong><span>↑ 18.4% from last Monday</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section workflow" id="workflow"><div class="shell"><div class="section-heading centered"><p class="kicker"><span></span> From first scan to final report</p><h2>Simple by design.<br/><em>Powerful underneath.</em></h2></div><div class="steps"><article><span>01</span><h3>Bring your catalog</h3><p>Add products in minutes or import them in bulk. UPos keeps variants, prices and stock organized.</p></article><article><span>02</span><h3>Start selling</h3><p>Invite the team, open a shift and take your first payment through a checkout built for speed.</p></article><article><span>03</span><h3>Grow with clarity</h3><p>Review performance, spot trends and make decisions from consistent, reliable records.</p></article></div></div></section>
+
+  <section class="section security" id="security"><div class="shell security-grid"><div><p class="kicker light"><span></span> Reliable by default</p><h2>Ready when<br/>business happens.</h2><p>UPos is designed around resilient operations and careful access controls, so a busy counter never becomes a blind spot.</p><a href="/contact/">Talk to our team <span>→</span></a></div><div class="security-list"><article><i>◌</i><div><h3>Offline-aware selling</h3><p>Keep working through connectivity interruptions and reconcile safely when you are back online.</p></div></article><article><i>◇</i><div><h3>Role-based access</h3><p>Give each teammate only the tools their role requires, across the right locations.</p></div></article><article><i>✓</i><div><h3>Traceable operations</h3><p>Maintain a clear record of critical shift, payment, return and inventory actions.</p></div></article></div></div></section>
+
+  <section class="section pricing-preview"><div class="shell"><div class="section-heading centered"><p class="kicker"><span></span> Straightforward pricing</p><h2>Start small.<br/><em>Scale without surprises.</em></h2><p>Every plan includes a 14-day free trial. Upgrade, downgrade or cancel at any time.</p></div><PricingCards /><p class="tax-note">Prices in USD. Applicable taxes are calculated at checkout. Subscriptions renew automatically until cancelled.</p></div></section>
+
+  <section class="section faq" id="faq"><div class="shell faq-grid"><div><p class="kicker"><span></span> Questions, answered</p><h2>Good to know.</h2><p>Still curious? <a href="/contact/">Talk to our team</a> and we will help you decide.</p></div><div class="accordion"><details open><summary>What happens after the free trial?</summary><p>Your chosen paid subscription begins only after you complete checkout. The renewal amount and billing interval are shown before purchase.</p></details><details><summary>Can UPos work when the internet is down?</summary><p>Supported checkout workflows are designed to continue locally during temporary interruptions and safely sync after connectivity returns.</p></details><details><summary>Can I cancel at any time?</summary><p>Yes. You can cancel before your next renewal date and retain access through the end of the paid billing period.</p></details><details><summary>Who handles payments and taxes?</summary><p>Paddle is our Merchant of Record and securely handles checkout, payment processing, applicable sales tax and invoices.</p></details></div></div></section>
+  <section class="final-cta"><div class="shell"><p class="kicker light"><span></span> Your next sale starts here</p><h2>Run your store<br/><em>with confidence.</em></h2><p>Join modern retail teams choosing clarity over complexity.</p><a class="button button-light" href="/pricing/">Start your free trial <span>→</span></a></div></section>
+</BaseLayout>

@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import '../styles/responsive.css';
+import { company, navigation } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical = Astro.url.pathname, noindex = false } = Astro.props;
+const canonicalUrl = new URL(canonical, Astro.site || Astro.url.origin);
+const currentYear = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#071814" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UPos" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL('/og-image.svg', Astro.site || Astro.url.origin)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'UPos',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web, Windows',
+      description,
+      offers: { '@type': 'AggregateOffer', lowPrice: '29', highPrice: '59', priceCurrency: 'USD' },
+      provider: { '@type': 'Organization', name: company.legalName, email: company.email },
+    })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header" data-header>
+      <div class="shell nav-wrap">
+        <a class="brand" href="/" aria-label="UPos home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>UPos</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+        <div class="nav-actions">
+          <a class="text-link desktop-only" href="/contact/">Talk to us</a>
+          <a class="button button-small" href="/pricing/">Start free</a>
+          <button class="menu-button" aria-label="Open navigation" aria-expanded="false" data-menu-button>
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>
+        {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="content"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <a class="brand brand-footer" href="/"><span class="brand-mark"><i></i><i></i><i></i></span><span>UPos</span></a>
+          <p>Calm, connected retail operations—built for teams that care about every sale.</p>
+        </div>
+        <div><h2>Product</h2><a href="/#product">Features</a><a href="/pricing/">Pricing</a><a href="/#security">Security</a><a href="/contact/">Contact</a></div>
+        <div><h2>Legal</h2><a href="/terms/">Terms of Service</a><a href="/privacy/">Privacy Policy</a><a href="/refund-policy/">Refund Policy</a></div>
+        <div><h2>Support</h2><a href={`mailto:${company.email}`}>{company.email}</a><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a><span>{company.supportHours}</span></div>
+      </div>
+      <div class="shell footer-bottom"><span>© {currentYear} {company.legalName}. All rights reserved.</span><span>Payments securely processed by Paddle.</span></div>
+    </footer>
+    <script>
+      const button = document.querySelector('[data-menu-button]');
+      const nav = document.querySelector('[data-mobile-nav]');
+      button?.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        nav?.classList.toggle('is-open', !open);
+      });
+      nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        button?.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+      }));
+    </script>
+  </body>
+</html>
