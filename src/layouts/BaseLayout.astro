@@ -79,9 +79,9 @@ const url = (path = '') => `${base}${path.replace(/^\/+/, '')}`;
         </div>
         <div><h2>Product</h2><a href={url('#product')}>Features</a><a href={url('pricing/')}>Pricing</a><a href={url('#security')}>Security</a><a href={url('contact/')}>Contact</a></div>
         <div><h2>Legal</h2><a href={url('terms/')}>Terms of Service</a><a href={url('privacy/')}>Privacy Policy</a><a href={url('refund-policy/')}>Refund Policy</a></div>
-        <div><h2>Support</h2><a href={`mailto:${company.email}`}>{company.email}</a><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a><span>{company.supportHours}</span></div>
+        <div><h2>Support</h2><a href={`mailto:${company.email}`}>{company.email}</a><span>{company.supportHours}</span><span>Replies {company.responseTime}</span></div>
       </div>
-      <div class="shell footer-bottom"><span>© {currentYear} {company.legalName}. All rights reserved.</span><span>Payments securely processed by Paddle.</span></div>
+      <div class="shell footer-bottom"><span>© {currentYear} {company.legalName}. All rights reserved.</span><span>UPos subscription billing securely processed by Paddle.</span></div>
     </footer>
     <script>
       const button = document.querySelector('[data-menu-button]');

@@ -38,3 +38,23 @@ test('checkout has noindex and requires terms acceptance context', async () => {
   assert.match(checkout, /By continuing, you agree/);
   assert.match(checkout, /PUBLIC_PADDLE_CLIENT_TOKEN/);
 });
+
+test('published contact details are accurate and contain no placeholder phone', async () => {
+  const site = await read('src/data/site.ts');
+  const sourceFiles = await Promise.all([
+    read('src/layouts/BaseLayout.astro'),
+    read('src/pages/contact.astro'),
+    read('src/pages/terms.astro'),
+    read('src/pages/privacy.astro'),
+    read('src/pages/refund-policy.astro'),
+  ]);
+  assert.match(site, /salekhallahyarov@gmail\.com/);
+  assert.doesNotMatch(sourceFiles.join('\n'), /company\.phone|\+995 32 200 00 00|support@upos\.ge/);
+});
+
+test('terms and pricing clearly separate UPos software from payment processing', async () => {
+  const terms = await read('src/pages/terms.astro');
+  const pricing = await read('src/pages/pricing.astro');
+  assert.match(terms, /not a bank, payment facilitator, payment processor/i);
+  assert.match(pricing, /subscription license to use UPos business-management software/i);
+});

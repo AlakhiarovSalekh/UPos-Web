@@ -20,4 +20,4 @@ npm run build
 
 Copy `.env.example` to the environment settings of the hosting provider. Set the canonical production URL and Paddle Billing client-side token/price IDs. The checkout intentionally shows a contact fallback until valid Paddle values are configured.
 
-Before submitting a domain for Paddle review, verify the business identity, support email, phone, address and governing-law details in `src/data/site.ts`, then deploy over HTTPS.
+Before submitting a domain for Paddle review, verify the business identity, support email and governing-law details in `src/data/site.ts`, then deploy over HTTPS.

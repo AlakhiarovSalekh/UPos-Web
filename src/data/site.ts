@@ -1,9 +1,7 @@
 export const company = {
   brand: 'UPos',
   legalName: 'UPos',
-  email: 'support@upos.ge',
-  phone: '+995 32 200 00 00',
-  address: 'Tbilisi, Georgia',
+  email: 'salekhallahyarov@gmail.com',
   supportHours: 'Monday–Friday, 09:00–18:00 (GET)',
   responseTime: 'within 2 business days',
   lastUpdated: '20 September 2026',
