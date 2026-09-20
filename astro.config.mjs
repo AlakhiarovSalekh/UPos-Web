@@ -5,7 +5,7 @@ const isGitHubPages = process.env.DEPLOY_GITHUB_PAGES === 'true';
 const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'UPos-Web';
 
 export default defineConfig({
-  site: process.env.PUBLIC_SITE_URL || (isGitHubPages ? 'https://alakhiarovsalekh.github.io' : 'https://upos.ge'),
+  site: process.env.PUBLIC_SITE_URL || (isGitHubPages ? 'https://alakhiarovsalekh.github.io' : 'https://upos-web.salekhallahyarov.workers.dev'),
   base: isGitHubPages ? `/${repositoryName}/` : '/',
   integrations: [sitemap()],
   build: { format: 'directory' },

@@ -58,3 +58,10 @@ test('terms and pricing clearly separate UPos software from payment processing',
   assert.match(terms, /not a bank, payment facilitator, payment processor/i);
   assert.match(pricing, /subscription license to use UPos business-management software/i);
 });
+
+test('production metadata uses the permanent Cloudflare deployment', async () => {
+  const config = await read('astro.config.mjs');
+  const robots = await read('src/pages/robots.txt.ts');
+  assert.match(config, /https:\/\/upos-web\.salekhallahyarov\.workers\.dev/);
+  assert.match(robots, /https:\/\/upos-web\.salekhallahyarov\.workers\.dev/);
+});
