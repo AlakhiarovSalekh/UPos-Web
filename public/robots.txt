@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /checkout/
-Sitemap: https://upos.ge/sitemap-index.xml
-

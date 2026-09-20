@@ -8,8 +8,13 @@ test('all Paddle review policy pages exist and are linked in the footer', async 
   const layout = await read('src/layouts/BaseLayout.astro');
   for (const page of ['terms', 'privacy', 'refund-policy', 'contact']) {
     await assert.doesNotReject(() => read(`src/pages/${page}.astro`));
-    assert.match(layout, new RegExp(`/${page}/`));
+    assert.match(layout, new RegExp(`url\\('${page}/'\\)`));
   }
+});
+
+test('GitHub Pages base path preserves trailing slash for internal URLs', async () => {
+  const config = await read('astro.config.mjs');
+  assert.match(config, /`\/\$\{repositoryName\}\/`/);
 });
 
 test('pricing clearly states currency, tax and renewal', async () => {

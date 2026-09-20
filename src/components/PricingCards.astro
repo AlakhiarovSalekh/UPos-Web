@@ -1,5 +1,6 @@
 ---
 import { plans } from '../data/site';
+const base = import.meta.env.BASE_URL;
 ---
 <div class="billing-toggle" role="group" aria-label="Billing period">
   <button class="is-active" data-billing="monthly">Monthly</button>
@@ -12,7 +13,7 @@ import { plans } from '../data/site';
       <div><p class="eyebrow">{plan.name}</p><h3>{plan.description}</h3></div>
       <div class="price"><span>$</span><strong data-monthly={plan.monthly} data-annual={Math.round(plan.annual / 12)}>{plan.monthly}</strong><span>/mo</span></div>
       <p class="billing-note" data-note>charged monthly</p>
-      <a class:list={['button', { 'button-dark': !plan.featured }]} href={`/checkout/?plan=${plan.name.toLowerCase()}`}>Start 14-day free trial</a>
+      <a class:list={['button', { 'button-dark': !plan.featured }]} href={`${base}checkout/?plan=${plan.name.toLowerCase()}`}>Start 14-day free trial</a>
       <p class="no-card">No card required for trial</p>
       <ul>
         <li>{plan.locations}</li><li>{plan.users}</li>

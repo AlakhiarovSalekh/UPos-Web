@@ -35,8 +35,8 @@ export const plans = [
 ] as const;
 
 export const navigation = [
-  { label: 'Product', href: '/#product' },
-  { label: 'How it works', href: '/#workflow' },
-  { label: 'Pricing', href: '/pricing/' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'Product', href: '#product' },
+  { label: 'How it works', href: '#workflow' },
+  { label: 'Pricing', href: 'pricing/' },
+  { label: 'FAQ', href: '#faq' },
 ] as const;
