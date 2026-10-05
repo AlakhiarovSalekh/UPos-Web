@@ -1,23 +1,67 @@
-# UPos website
+# UPos Web
 
-Premium marketing and commerce website for UPos, built as a static Astro site.
+[![Astro](https://img.shields.io/badge/Astro-Static%20Site-BC52EE?logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Cloudflare](https://img.shields.io/badge/Cloudflare-Wrangler-F38020?logo=cloudflare&logoColor=white)](https://developers.cloudflare.com/workers/wrangler/)
+[![Stars](https://img.shields.io/github/stars/AlakhiarovSalekh/UPos-Web?style=social)](https://github.com/AlakhiarovSalekh/UPos-Web/stargazers)
 
-## Local development
+The public marketing and commerce website for UPos, built with Astro and TypeScript with Cloudflare deployment tooling and Paddle checkout configuration hooks.
+
+## Tech Stack
+
+- Astro
+- TypeScript
+- Node.js 20+
+- Cloudflare Wrangler
+- Paddle Billing configuration
+- Node test runner
+
+## Local Development
 
 ```bash
+git clone https://github.com/AlakhiarovSalekh/UPos-Web.git
+cd UPos-Web
 npm install
 npm run dev
 ```
 
-## Quality gates
+## Quality Gates
 
 ```bash
 npm test
+npm run check
 npm run build
 ```
 
-## Production configuration
+## Deployment
 
-Copy `.env.example` to the environment settings of the hosting provider. Set the canonical production URL and Paddle Billing client-side token/price IDs. The checkout intentionally shows a contact fallback until valid Paddle values are configured.
+The repository includes Wrangler configuration and a deployment script:
 
-Before submitting a domain for Paddle review, verify the business identity, support email and governing-law details in `src/data/site.ts`, then deploy over HTTPS.
+```bash
+npm run deploy
+```
+
+Production values should be supplied through the hosting environment rather than committed secrets. The site reads configuration such as the canonical production URL and Paddle client-side/price identifiers from environment settings.
+
+## Repository Structure
+
+```text
+public/           Static assets
+src/              Astro site source
+tests/            Node-based tests
+astro.config.mjs  Astro configuration
+wrangler.jsonc    Cloudflare deployment configuration
+.env.example      Environment variable template
+```
+
+## Commerce / Paddle Notes
+
+Before using the site for a real billing flow, verify the public business identity, support details, legal content, production domain, and Paddle configuration expected by the site. Client callbacks should not be treated as authoritative billing state.
+
+## Contributing
+
+Bug fixes, accessibility improvements, performance work, tests, and documentation improvements are welcome.
+
+## Author
+
+**Salekh Alakhiarov** · [GitHub](https://github.com/AlakhiarovSalekh)
