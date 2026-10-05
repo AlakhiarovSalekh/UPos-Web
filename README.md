@@ -1,4 +1,4 @@
-# UPos Web
+# UPos Web — Astro, TypeScript, Cloudflare & Paddle
 
 [![Astro](https://img.shields.io/badge/Astro-Static%20Site-BC52EE?logo=astro&logoColor=white)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
