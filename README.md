@@ -62,6 +62,12 @@ Before using the site for a real billing flow, verify the public business identi
 
 Bug fixes, accessibility improvements, performance work, tests, and documentation improvements are welcome.
 
+## More Projects by Salekh
+
+- [SalekhPos](https://github.com/AlakhiarovSalekh/SalekhPos) — security-focused retail/POS platform under active development.
+- [Inventory Management Desktop App](https://github.com/AlakhiarovSalekh/Inventory-App) — Python/PyQt inventory application.
+- [50 Projects — HTML, CSS & JavaScript](https://github.com/AlakhiarovSalekh/50-Projects-HTML-CSS-JavaScript) — frontend practice collection.
+
 ## Author
 
 **Salekh Alakhiarov** · [GitHub](https://github.com/AlakhiarovSalekh)
