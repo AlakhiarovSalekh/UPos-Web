@@ -62,6 +62,8 @@ Before using the site for a real billing flow, verify the public business identi
 
 Bug fixes, accessibility improvements, performance work, tests, and documentation improvements are welcome.
 
+> If this project is useful to you, consider starring the repository. It helps you find it again and helps other developers discover the project.
+
 ## More Projects by Salekh
 
 - [SalekhPos](https://github.com/AlakhiarovSalekh/SalekhPos) — security-focused retail/POS platform under active development.
